@@ -1,0 +1,47 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:best-practices"],
+	"timezone": "Australia/Sydney",
+	"reviewers": ["lilsnibbi"],
+	"labels": ["dependencies", "renovate"],
+	"dependencyDashboardLabels": ["dependencies", "renovate"],
+	"prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}",
+	"prCreation": "immediate",
+	"automerge": false,
+	"vulnerabilityAlerts": {
+		"assignees": ["lilsnibbi"],
+		"labels": ["dependencies", "renovate", "security"]
+	},
+	"packageRules": [
+		{
+			"description": "Allow all dependency updates immediately after release",
+			"matchPackageNames": ["*"],
+			"minimumReleaseAge": null
+		},
+		{
+			"description": "Group non-major Bun dependency updates",
+			"matchManagers": ["bun"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "Bun dependencies",
+			"addLabels": ["bun"]
+		},
+		{
+			"description": "Group GitHub Actions updates",
+			"matchManagers": ["github-actions"],
+			"groupName": "GitHub Actions",
+			"addLabels": ["github-actions"]
+		},
+		{
+			"description": "Group Docker image updates",
+			"matchDatasources": ["docker"],
+			"groupName": "Docker images",
+			"addLabels": ["docker"],
+			"pinDigests": false
+		},
+		{
+			"description": "Highlight major updates",
+			"matchUpdateTypes": ["major"],
+			"addLabels": ["major-update"]
+		}
+	]
+}
