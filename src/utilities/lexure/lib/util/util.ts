@@ -13,11 +13,11 @@ import type { Parameter } from "@types";
  */
 export function join(parameters: readonly Parameter[]): string {
 	if (parameters.length === 0) return "";
-	if (parameters.length === 1) return parameters[0].value;
+	if (parameters.length === 1) return parameters[0]!.value;
 
-	let output = parameters[0].value;
+	let output = parameters[0]!.value;
 	for (let index = 1; index < parameters.length; index++) {
-		const parameter = parameters[index];
+		const parameter = parameters[index]!;
 		output += parameter.leading + parameter.value;
 	}
 
@@ -37,11 +37,11 @@ export function join(parameters: readonly Parameter[]): string {
  */
 export function joinRaw(parameters: readonly Parameter[]): string {
 	if (parameters.length === 0) return "";
-	if (parameters.length === 1) return parameters[0].raw;
+	if (parameters.length === 1) return parameters[0]!.raw;
 
-	let output = parameters[0].raw;
+	let output = parameters[0]!.raw;
 	for (let index = 1; index < parameters.length; index++) {
-		const parameter = parameters[index];
+		const parameter = parameters[index]!;
 		output += parameter.leading + parameter.raw;
 	}
 

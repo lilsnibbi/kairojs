@@ -44,7 +44,7 @@ export function tee<const ElementType>(
 	const iterables: IterableIterator<ElementType>[] = [];
 	for (let cursorIndex = 0; cursorIndex < count; cursorIndex++) {
 		const teed = makeIterableIterator<ElementType>(() => {
-			if (cursors[cursorIndex] >= buffered.length) {
+			if (cursors[cursorIndex]! >= buffered.length) {
 				const result = resolvedIterable.next();
 				if (result.done) {
 					return { done: true, value: undefined };
@@ -53,7 +53,7 @@ export function tee<const ElementType>(
 				buffered.push(result.value);
 			}
 
-			return { done: false, value: buffered[cursors[cursorIndex]++] };
+			return { done: false, value: buffered[cursors[cursorIndex]!++]! };
 		});
 
 		iterables.push(teed);

@@ -55,7 +55,7 @@ export class LazyPaginatedMessage extends PaginatedMessage {
 			pending.push(super.resolvePage(messageOrInteraction, target, index + 1));
 
 		const [requested] = await Promise.all(pending);
-		return requested;
+		return requested!;
 	}
 
 	/**

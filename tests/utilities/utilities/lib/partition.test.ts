@@ -10,8 +10,8 @@ describe("partition", () => {
 	});
 
 	test("GIVEN predicate is not a function THEN throws TypeError", () => {
-		// @ts-expect-error fail case
 		const thrownCall = () =>
+			// @ts-expect-error fail case
 			partition(["one", "two", "three"], "not-a-function");
 		expect(thrownCall).toThrow(TypeError);
 		expect(thrownCall).toThrow(

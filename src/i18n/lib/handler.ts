@@ -165,7 +165,6 @@ export class InternationalizationHandler {
 		await i18next.init({
 			backend: this.backendOptions,
 			fallbackLng: this.options.defaultName ?? "en-US",
-			initImmediate: false,
 			interpolation: {
 				escapeValue: false,
 				...userOptions?.interpolation,

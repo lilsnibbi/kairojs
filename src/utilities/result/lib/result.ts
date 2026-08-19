@@ -1072,10 +1072,9 @@ export class Result<T, E, const Success extends boolean = boolean> {
 	>(
 		other: Result<OtherValue, OtherError, OtherSuccess>,
 	): this is Result<OtherValue, OtherError, OtherSuccess> {
-		// @ts-expect-error Complex types
-		return (
-			this.isOk() === other.isOk() && this[ValueSymbol] === other[ValueSymbol]
-		);
+		if (this.isOk() !== other.isOk()) return false;
+		// @ts-expect-error Complex types: both are confirmed the same branch above.
+		return this[ValueSymbol] === other[ValueSymbol];
 	}
 
 	/**
@@ -1117,10 +1116,16 @@ export class Result<T, E, const Success extends boolean = boolean> {
 		ok(this: Ok<T>, value: If<Success, T, never>): OkValue;
 		err(this: Err<E>, error: If<Success, never, E>): ErrValue;
 	}): If<Success, OkValue, ErrValue> {
-		// @ts-expect-error Complex types
-		return this.isOk()
-			? branches.ok.call(this, this[ValueSymbol])
-			: branches.err.call(this, this[ValueSymbol] as E);
+		const result = this.isOk()
+			? branches.ok.call(
+					this as unknown as Ok<T>,
+					this[ValueSymbol] as unknown as If<Success, T, never>,
+				)
+			: branches.err.call(
+					this as unknown as Err<E>,
+					this[ValueSymbol] as unknown as If<Success, never, E>,
+				);
+		return result as If<Success, OkValue, ErrValue>;
 	}
 
 	/**

@@ -55,7 +55,7 @@ export class BitField<
 			throw new TypeError("flags must be a non-empty object");
 		}
 
-		const type = typeof entries[0][1];
+		const type = typeof entries[0]![1];
 		if (type !== "number" && type !== "bigint") {
 			throw new TypeError(
 				"A bitfield can only use numbers or bigints for its values",

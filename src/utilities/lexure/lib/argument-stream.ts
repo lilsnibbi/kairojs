@@ -91,7 +91,7 @@ export class ArgumentStream {
 		}
 
 		this.state.used.add(this.state.position);
-		return Option.some(this.results.ordered[this.state.position++].value);
+		return Option.some(this.results.ordered[this.state.position++]!.value);
 	}
 
 	/**
@@ -137,7 +137,7 @@ export class ArgumentStream {
 			++this.state.position;
 		}
 
-		const result = predicate(this.results.ordered[this.state.position].value);
+		const result = predicate(this.results.ordered[this.state.position]!.value);
 		if (result.isSome() || useAnyways) {
 			this.state.used.add(this.state.position);
 			++this.state.position;
@@ -168,7 +168,7 @@ export class ArgumentStream {
 		}
 
 		const result = await predicate(
-			this.results.ordered[this.state.position].value,
+			this.results.ordered[this.state.position]!.value,
 		);
 		if (result.isSome() || useAnyways) {
 			this.state.used.add(this.state.position);
@@ -223,7 +223,7 @@ export class ArgumentStream {
 			++this.state.position;
 		}
 
-		const result = predicate(this.results.ordered[this.state.position].value);
+		const result = predicate(this.results.ordered[this.state.position]!.value);
 		if (result.isOk() || useAnyways) {
 			this.state.used.add(this.state.position);
 			++this.state.position;
@@ -255,7 +255,7 @@ export class ArgumentStream {
 		}
 
 		const result = await predicate(
-			this.results.ordered[this.state.position].value,
+			this.results.ordered[this.state.position]!.value,
 		);
 		if (result.isOk() || useAnyways) {
 			this.state.used.add(this.state.position);
@@ -289,7 +289,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			if (predicate(value)) {
 				this.state.used.add(index);
 				return Option.some(value);
@@ -315,7 +315,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			if (await predicate(value)) {
 				this.state.used.add(index);
 				return Option.some(value);
@@ -342,7 +342,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = predicate(value);
 			if (result.isSome()) {
 				this.state.used.add(index);
@@ -370,7 +370,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = await predicate(value);
 			if (result.isSome()) {
 				this.state.used.add(index);
@@ -418,7 +418,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = predicate(value);
 			if (result.isOk()) {
 				this.state.used.add(index);
@@ -452,7 +452,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = await predicate(value);
 			if (result.isOk()) {
 				this.state.used.add(index);
@@ -501,7 +501,7 @@ export class ArgumentStream {
 
 			// Mark the parameter as used and collect it:
 			this.state.used.add(index);
-			parameters.push(this.results.ordered[index]);
+			parameters.push(this.results.ordered[index]!);
 
 			// Stop once the limit has been reached:
 			if (parameters.length >= limit) break;
@@ -528,7 +528,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			if (predicate(value)) {
 				this.state.used.add(index);
 				parameters.push(value);
@@ -558,7 +558,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			if (await predicate(value)) {
 				this.state.used.add(index);
 				parameters.push(value);
@@ -586,7 +586,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = predicate(value);
 			result.inspect((transformed) => {
 				this.state.used.add(index);
@@ -617,7 +617,7 @@ export class ArgumentStream {
 		for (let index = from; index < this.length; ++index) {
 			if (this.state.used.has(index)) continue;
 
-			const value = this.results.ordered[index].value;
+			const value = this.results.ordered[index]!.value;
 			const result = await predicate(value);
 			result.inspect((transformed) => {
 				this.state.used.add(index);

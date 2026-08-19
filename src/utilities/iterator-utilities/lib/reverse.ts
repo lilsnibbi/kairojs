@@ -28,6 +28,6 @@ export function* reverse<const ElementType>(
 ): IterableIterator<ElementType> {
 	const items = collect(iterable);
 	for (let index = items.length - 1; index >= 0; index--) {
-		yield items[index];
+		yield items[index]!;
 	}
 }

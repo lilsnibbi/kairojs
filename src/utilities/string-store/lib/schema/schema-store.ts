@@ -129,7 +129,7 @@ export class SchemaStore<Entries extends object = object> {
 
 		if (typeof buffer === "string") {
 			// Only the first character needs to be read:
-			buffer = UnalignedUint16Array.from(buffer[0]);
+			buffer = UnalignedUint16Array.from(buffer[0]!);
 		}
 
 		return buffer.at(0) as KeyOfStore<this>;

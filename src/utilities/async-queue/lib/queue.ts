@@ -83,7 +83,7 @@ export class AsyncQueue {
 
 		// Drop the finished head so the next entry becomes the head, then unblock it.
 		this.#entries.shift();
-		this.#entries[0].release();
+		this.#entries[0]!.release();
 	}
 
 	/**
@@ -97,7 +97,7 @@ export class AsyncQueue {
 
 		// Start at 1 so the entry holding the head lock is left untouched.
 		for (let index = 1; index < this.#entries.length; ++index) {
-			this.#entries[index].abort();
+			this.#entries[index]!.abort();
 		}
 
 		this.#entries.length = 1;

@@ -84,8 +84,8 @@ export class Cron {
 					outset.getUTCFullYear(),
 					outset.getUTCMonth(),
 					outset.getUTCDate(),
-					this.hours[0],
-					this.minutes[0],
+					this.hours[0]!,
+					this.minutes[0]!,
 				),
 			);
 
@@ -134,8 +134,8 @@ export class Cron {
 				part.replace(wildcardRegex, (match) => {
 					if (match === "h")
 						return (
-							Math.floor(Math.random() * allowedNum[index][1]) +
-							allowedNum[index][0]
+							Math.floor(Math.random() * allowedNum[index]![1]!) +
+							allowedNum[index]![0]!
 						).toString();
 
 					if (match === "?") {
@@ -168,10 +168,18 @@ export class Cron {
 	 *
 	 * @param cron The normalized pattern to parse.
 	 */
-	private static parseString(cron: string): number[][] {
+	private static parseString(
+		cron: string,
+	): [number[], number[], number[], number[], number[]] {
 		const parts = cron.split(" ");
 		if (parts.length !== 5) throw new Error("Invalid Cron Provided");
-		return parts.map((part, index) => Cron.parsePart(part, index));
+		return parts.map((part, index) => Cron.parsePart(part, index)) as [
+			number[],
+			number[],
+			number[],
+			number[],
+			number[],
+		];
 	}
 
 	/**
@@ -191,12 +199,12 @@ export class Cron {
 
 		const [, wild, minString, maxString, step] = partRegex.exec(cronPart)!;
 		let [min, max] = [
-			Number.parseInt(minString, 10),
-			Number.parseInt(maxString, 10),
+			Number.parseInt(minString!, 10),
+			Number.parseInt(maxString!, 10),
 		];
 
 		// If '*', set min and max as the minimum and maximum allowed numbers:
-		if (wild) [min, max] = allowedNum[id];
+		if (wild) [min, max] = allowedNum[id]! as [number, number];
 		// Else if a number was given, but not a maximum nor a step, return it as the only allowed value:
 		else if (!max && !step) return [min];
 
@@ -205,8 +213,10 @@ export class Cron {
 		// -> 1-2 | 1..2
 		// -> 2-1 | 1..2
 		// -> 1/7 | 1, 8, 15, 22, 29, 36, 43, 50, 57
-		[min, max] = [min, max || allowedNum[id][1]].sort((a, b) => a - b);
+		[min, max] = ([min, max || allowedNum[id]![1]!] as [number, number]).sort(
+			(a, b) => a - b,
+		) as [number, number];
 
-		return range(min, max, Number.parseInt(step, 10) || 1);
+		return range(min, max, Number.parseInt(step!, 10) || 1);
 	}
 }

@@ -124,7 +124,11 @@ async function findByLink(
 		return null;
 	}
 
-	return fetchVisibleMessage(channelId, messageId, resolveRequester(options));
+	return fetchVisibleMessage(
+		channelId!,
+		messageId!,
+		resolveRequester(options),
+	);
 }
 
 /**
@@ -141,8 +145,8 @@ async function findByChannelAndMessage(
 	}
 
 	return fetchVisibleMessage(
-		groups.channelId,
-		groups.messageId,
+		groups.channelId!,
+		groups.messageId!,
 		resolveRequester(options),
 	);
 }

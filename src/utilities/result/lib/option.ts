@@ -802,10 +802,11 @@ export class Option<T, Exists extends boolean = boolean> {
 	public zip<OtherValue, OtherExists extends boolean>(
 		other: Option<OtherValue, OtherExists>,
 	): Option<[T, OtherValue], If<Exists, OtherExists, false>> {
-		// @ts-expect-error Complex types
-		return this.isSome() && other.isSome()
-			? some([this[ValueSymbol], other[ValueSymbol]] as [T, OtherValue])
-			: none;
+		const result =
+			this.isSome() && other.isSome()
+				? some([this[ValueSymbol], other[ValueSymbol]] as [T, OtherValue])
+				: none;
+		return result as Option<[T, OtherValue], If<Exists, OtherExists, false>>;
 	}
 
 	/**
@@ -840,10 +841,11 @@ export class Option<T, Exists extends boolean = boolean> {
 		other: Option<OtherValue, OtherExists>,
 		combine: (value: T, otherValue: OtherValue) => ReturnValue,
 	): Option<ReturnValue, If<Exists, OtherExists, false>> {
-		// @ts-expect-error Complex types
-		return this.isSome() && other.isSome()
-			? some(combine(this[ValueSymbol], other[ValueSymbol]))
-			: none;
+		const result =
+			this.isSome() && other.isSome()
+				? some(combine(this[ValueSymbol], other[ValueSymbol]))
+				: none;
+		return result as Option<ReturnValue, If<Exists, OtherExists, false>>;
 	}
 
 	/**
@@ -866,11 +868,11 @@ export class Option<T, Exists extends boolean = boolean> {
 	public unzip<Value0, Value1, Exists extends boolean>(
 		this: Option<readonly [Value0, Value1], Exists>,
 	): [Option<Value0, Exists>, Option<Value1, Exists>] {
-		// @ts-expect-error Complex types
-		return this.match({
+		const result = this.match({
 			some: ([value0, value1]) => [some(value0), some(value1)],
 			none: () => [none, none],
 		});
+		return result as [Option<Value0, Exists>, Option<Value1, Exists>];
 	}
 
 	/**
@@ -967,11 +969,9 @@ export class Option<T, Exists extends boolean = boolean> {
 	public eq<OtherValue extends T, OtherExists extends boolean>(
 		other: Option<OtherValue, OtherExists>,
 	): this is Option<OtherValue, OtherExists> {
-		// @ts-expect-error Complex types
-		return (
-			this.isSome() === other.isSome() &&
-			this[ValueSymbol] === other[ValueSymbol]
-		);
+		if (this.isSome() !== other.isSome()) return false;
+		// @ts-expect-error Complex types: both are confirmed `Some` above.
+		return this[ValueSymbol] === other[ValueSymbol];
 	}
 
 	/**
@@ -1013,10 +1013,10 @@ export class Option<T, Exists extends boolean = boolean> {
 		some(this: Some<T>, value: T): SomeValue;
 		none(this: None): NoneValue;
 	}): If<Exists, SomeValue, NoneValue> {
-		// @ts-expect-error Complex types
-		return this.isSome()
+		const result = this.isSome()
 			? branches.some.call(this, this[ValueSymbol])
-			: branches.none.call(this);
+			: branches.none.call(this as unknown as None);
+		return result as If<Exists, SomeValue, NoneValue>;
 	}
 
 	/**

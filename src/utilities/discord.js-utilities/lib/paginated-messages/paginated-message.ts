@@ -136,7 +136,7 @@ export class PaginatedMessage {
 			options: [],
 			run: ({ handler, interaction }) => {
 				if (interaction.isStringSelectMenu()) {
-					handler.index = parseInt(interaction.values[0], 10);
+					handler.index = parseInt(interaction.values[0]!, 10);
 				}
 			},
 		},
@@ -1340,7 +1340,7 @@ export class PaginatedMessage {
 			return cached;
 		}
 
-		const resolvedPage = await this.handlePageLoad(this.pages[index], index);
+		const resolvedPage = await this.handlePageLoad(this.pages[index]!, index);
 		if (resolvedPage.actions) {
 			this.addPageActions(resolvedPage.actions, index);
 		}
@@ -1760,7 +1760,7 @@ export class PaginatedMessage {
 
 		const lastIndex = embeds.length - 1;
 		if (embeds.length > 0) {
-			let lastEmbed = embeds[lastIndex];
+			let lastEmbed = embeds[lastIndex]!;
 			const templateEmbed =
 				this.template.embeds?.[lastIndex] ?? this.template.embeds?.[0];
 			const jsonTemplateEmbed = isJSONEncodable(templateEmbed)
@@ -1834,14 +1834,14 @@ export class PaginatedMessage {
 		pageEmbeds: PaginatedMessageEmbedResolvable,
 	): PaginatedMessageEmbedResolvable {
 		if (isNullish(pageEmbeds)) {
-			return templateEmbed ? [templateEmbed?.[0]] : undefined;
+			return templateEmbed ? [templateEmbed[0]!] : undefined;
 		}
 
 		if (isNullish(templateEmbed)) {
 			return pageEmbeds;
 		}
 
-		return this.mergeEmbeds(templateEmbed[0], pageEmbeds);
+		return this.mergeEmbeds(templateEmbed[0]!, pageEmbeds);
 	}
 
 	/**

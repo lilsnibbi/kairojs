@@ -14,8 +14,8 @@ const tokenResolvers = new Map<string, TimestampTokenResolver>([
 	["Q", (time) => String((time.getMonth() + 1) / 3)],
 	["M", (time) => String(time.getMonth() + 1)],
 	["MM", (time) => String(time.getMonth() + 1).padStart(2, "0")],
-	["MMM", (time) => months[time.getMonth()]],
-	["MMMM", (time) => months[time.getMonth()]],
+	["MMM", (time) => months[time.getMonth()]!],
+	["MMMM", (time) => months[time.getMonth()]!],
 	["D", (time) => String(time.getDate())],
 	["DD", (time) => String(time.getDate()).padStart(2, "0")],
 	[
@@ -48,9 +48,9 @@ const tokenResolvers = new Map<string, TimestampTokenResolver>([
 			return `${day}th`;
 		},
 	],
-	["dd", (time) => days[time.getDay()].slice(0, 2)],
-	["ddd", (time) => days[time.getDay()].slice(0, 3)],
-	["dddd", (time) => days[time.getDay()]],
+	["dd", (time) => days[time.getDay()]!.slice(0, 2)],
+	["ddd", (time) => days[time.getDay()]!.slice(0, 3)],
+	["dddd", (time) => days[time.getDay()]!],
 	["X", (time) => String(time.valueOf() / Time.Second)],
 	["x", (time) => String(time.valueOf())],
 
@@ -93,38 +93,38 @@ const tokenResolvers = new Map<string, TimestampTokenResolver>([
 	[
 		"LL",
 		(time) =>
-			`${months[time.getMonth()]} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())}`,
+			`${months[time.getMonth()]!} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())}`,
 	],
 	[
 		"ll",
 		(time) =>
-			`${months[time.getMonth()].slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())}`,
+			`${months[time.getMonth()]!.slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())}`,
 	],
 	[
 		"LLL",
 		(time) =>
-			`${months[time.getMonth()]} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
+			`${months[time.getMonth()]!} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
 				time.getHours() % 12 || 12,
 			)}:${String(time.getMinutes()).padStart(2, "0")} ${time.getHours() < 12 ? "AM" : "PM"}`,
 	],
 	[
 		"lll",
 		(time) =>
-			`${months[time.getMonth()].slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
+			`${months[time.getMonth()]!.slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
 				time.getHours() % 12 || 12,
 			)}:${String(time.getMinutes()).padStart(2, "0")} ${time.getHours() < 12 ? "AM" : "PM"}`,
 	],
 	[
 		"LLLL",
 		(time) =>
-			`${days[time.getDay()]}, ${months[time.getMonth()]} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
+			`${days[time.getDay()]!}, ${months[time.getMonth()]!} ${String(time.getDate()).padStart(2, "0")}, ${String(time.getFullYear())} ${String(
 				time.getHours() % 12 || 12,
 			)}:${String(time.getMinutes()).padStart(2, "0")} ${time.getHours() < 12 ? "AM" : "PM"}`,
 	],
 	[
 		"llll",
 		(time) =>
-			`${days[time.getDay()].slice(0, 3)} ${months[time.getMonth()].slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(
+			`${days[time.getDay()]!.slice(0, 3)} ${months[time.getMonth()]!.slice(0, 3)} ${String(time.getDate()).padStart(2, "0")}, ${String(
 				time.getFullYear(),
 			)} ${String(time.getHours() % 12 || 12)}:${String(time.getMinutes()).padStart(2, "0")} ${time.getHours() < 12 ? "AM" : "PM"}`,
 	],
@@ -273,26 +273,26 @@ export class Timestamp {
 		const template: TimestampTemplateEntry[] = [];
 		for (let index = 0; index < pattern.length; index++) {
 			let current = "";
-			const currentChar = pattern[index];
+			const currentChar = pattern[index]!;
 			const tokenMax = tokens.get(currentChar);
 			if (typeof tokenMax === "number") {
 				current += currentChar;
 				while (pattern[index + 1] === currentChar && current.length < tokenMax)
-					current += pattern[++index];
+					current += pattern[++index]!;
 				template.push({ type: current, content: null });
 			} else if (currentChar === "[") {
 				while (index + 1 < pattern.length && pattern[index + 1] !== "]")
-					current += pattern[++index];
+					current += pattern[++index]!;
 				index++;
 				template.push({ type: "literal", content: current || "[" });
 			} else {
 				current += currentChar;
 				while (
 					index + 1 < pattern.length &&
-					!tokens.has(pattern[index + 1]) &&
+					!tokens.has(pattern[index + 1]!) &&
 					pattern[index + 1] !== "["
 				)
-					current += pattern[++index];
+					current += pattern[++index]!;
 				template.push({ type: "literal", content: current });
 			}
 		}

@@ -53,8 +53,8 @@ import type {
  *
  * @since 1.0.0
  */
-// biome-ignore lint/complexity/noBannedTypes: the empty object is deliberate — consumers augment this type
-export type CustomEvents = {};
+// biome-ignore lint/complexity/noBannedTypes: the empty interface is deliberate — consumers augment it via declaration merging
+export interface CustomEvents {}
 
 /**
  * Where an event comes from.

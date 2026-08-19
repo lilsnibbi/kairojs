@@ -260,7 +260,9 @@ export class ChatInputInteractionOptionResolver {
 			ApplicationCommandOptionType.User,
 			required,
 		);
-		return option?.value ? this.#resolved!.users![option.value] : null;
+		return option?.value
+			? (this.#resolved!.users![option.value] ?? null)
+			: null;
 	}
 
 	/**
@@ -282,7 +284,9 @@ export class ChatInputInteractionOptionResolver {
 			ApplicationCommandOptionType.User,
 			required,
 		);
-		return option?.value ? this.#resolved!.members![option.value] : null;
+		return option?.value
+			? (this.#resolved!.members![option.value] ?? null)
+			: null;
 	}
 
 	/**
@@ -301,7 +305,9 @@ export class ChatInputInteractionOptionResolver {
 			ApplicationCommandOptionType.Role,
 			required,
 		);
-		return option?.value ? this.#resolved!.roles![option.value] : null;
+		return option?.value
+			? (this.#resolved!.roles![option.value] ?? null)
+			: null;
 	}
 
 	/**
@@ -320,7 +326,9 @@ export class ChatInputInteractionOptionResolver {
 			ApplicationCommandOptionType.Attachment,
 			required,
 		);
-		return option?.value ? this.#resolved!.attachments![option.value] : null;
+		return option?.value
+			? (this.#resolved!.attachments![option.value] ?? null)
+			: null;
 	}
 
 	/**

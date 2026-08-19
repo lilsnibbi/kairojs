@@ -28,7 +28,7 @@ export function FixedLengthArrayType<
 			}
 
 			for (let index = 0; index < length; index++) {
-				type.serialize(buffer, values[index]);
+				type.serialize(buffer, values[index]!);
 			}
 		},
 		deserialize(buffer, pointer) {

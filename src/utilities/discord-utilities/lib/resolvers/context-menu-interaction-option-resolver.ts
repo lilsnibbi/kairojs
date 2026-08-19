@@ -54,7 +54,7 @@ export class ContextMenuInteractionOptionResolver {
 
 		return (this.#resolved as APIUserInteractionDataResolved).users[
 			this.#interaction.data.target_id
-		];
+		]!;
 	}
 
 	/**
@@ -102,6 +102,6 @@ export class ContextMenuInteractionOptionResolver {
 
 		return (
 			this.#resolved as APIMessageApplicationCommandInteractionDataResolved
-		).messages[this.#interaction.data.target_id];
+		).messages[this.#interaction.data.target_id]!;
 	}
 }

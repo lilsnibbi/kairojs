@@ -40,6 +40,6 @@ export function takeLast<const ElementType>(
 			return { done: true, value: undefined };
 		}
 
-		return { done: false, value: array[index++] };
+		return { done: false, value: array[index++]! };
 	});
 }

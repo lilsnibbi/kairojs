@@ -26,10 +26,10 @@ export function partition<T>(
 	const rejected: T[] = [];
 
 	for (let index = 0; index < array.length; index++) {
-		if (predicate(array[index], index)) {
-			accepted.push(array[index]);
+		if (predicate(array[index]!, index)) {
+			accepted.push(array[index]!);
 		} else {
-			rejected.push(array[index]);
+			rejected.push(array[index]!);
 		}
 	}
 

@@ -92,30 +92,30 @@ export class UnalignedUint16Array implements DuplexBuffer {
 
 	public writeBigInt32(value: bigint): void {
 		converterInt64[0] = value;
-		this.#bufferWrite16(converterUint16[0]);
-		this.#bufferWrite16(converterUint16[1]);
+		this.#bufferWrite16(converterUint16[0]!);
+		this.#bufferWrite16(converterUint16[1]!);
 	}
 
 	public writeBigInt64(value: bigint): void {
 		converterInt64[0] = value;
-		this.#bufferWrite16(converterUint16[0]);
-		this.#bufferWrite16(converterUint16[1]);
-		this.#bufferWrite16(converterUint16[2]);
-		this.#bufferWrite16(converterUint16[3]);
+		this.#bufferWrite16(converterUint16[0]!);
+		this.#bufferWrite16(converterUint16[1]!);
+		this.#bufferWrite16(converterUint16[2]!);
+		this.#bufferWrite16(converterUint16[3]!);
 	}
 
 	public writeFloat32(value: number): void {
 		converterFloat[0] = value;
-		this.#bufferWrite16(converterUint16[0]);
-		this.#bufferWrite16(converterUint16[1]);
+		this.#bufferWrite16(converterUint16[0]!);
+		this.#bufferWrite16(converterUint16[1]!);
 	}
 
 	public writeFloat64(value: number): void {
 		converterDouble[0] = value;
-		this.#bufferWrite16(converterUint16[0]);
-		this.#bufferWrite16(converterUint16[1]);
-		this.#bufferWrite16(converterUint16[2]);
-		this.#bufferWrite16(converterUint16[3]);
+		this.#bufferWrite16(converterUint16[0]!);
+		this.#bufferWrite16(converterUint16[1]!);
+		this.#bufferWrite16(converterUint16[2]!);
+		this.#bufferWrite16(converterUint16[3]!);
 	}
 
 	public readBit(offset: PointerLike): 0 | 1 {
@@ -167,17 +167,17 @@ export class UnalignedUint16Array implements DuplexBuffer {
 
 	public readUint16(offset: PointerLike): number {
 		this.#bufferRead16(Pointer.from(offset));
-		return converterUint16[0];
+		return converterUint16[0]!;
 	}
 
 	public readInt32(offset: PointerLike): number {
 		this.#bufferRead32(Pointer.from(offset));
-		return converterInt32[0];
+		return converterInt32[0]!;
 	}
 
 	public readUint32(offset: PointerLike): number {
 		this.#bufferRead32(Pointer.from(offset));
-		return converterUint32[0];
+		return converterUint32[0]!;
 	}
 
 	public readInt64(offset: PointerLike): number {
@@ -190,32 +190,32 @@ export class UnalignedUint16Array implements DuplexBuffer {
 
 	public readBigInt32(offset: PointerLike): bigint {
 		this.#bufferRead32(Pointer.from(offset));
-		return BigInt(converterInt32[0]);
+		return BigInt(converterInt32[0]!);
 	}
 
 	public readBigUint32(offset: PointerLike): bigint {
 		this.#bufferRead32(Pointer.from(offset));
-		return BigInt(converterUint32[0]);
+		return BigInt(converterUint32[0]!);
 	}
 
 	public readBigInt64(offset: PointerLike): bigint {
 		this.#bufferRead64(Pointer.from(offset));
-		return converterInt64[0];
+		return converterInt64[0]!;
 	}
 
 	public readBigUint64(offset: PointerLike): bigint {
 		this.#bufferRead64(Pointer.from(offset));
-		return converterUint64[0];
+		return converterUint64[0]!;
 	}
 
 	public readFloat32(offset: PointerLike): number {
 		this.#bufferRead32(Pointer.from(offset));
-		return converterFloat[0];
+		return converterFloat[0]!;
 	}
 
 	public readFloat64(offset: PointerLike): number {
 		this.#bufferRead64(Pointer.from(offset));
-		return converterDouble[0];
+		return converterDouble[0]!;
 	}
 
 	public toString(): string {
@@ -223,7 +223,7 @@ export class UnalignedUint16Array implements DuplexBuffer {
 
 		for (let index = 0; index < this.length; index++) {
 			result += String.fromCodePoint(
-				this.#uint16ToCodepoint(this.#buffer[index]),
+				this.#uint16ToCodepoint(this.#buffer[index]!),
 			);
 		}
 
@@ -258,7 +258,7 @@ export class UnalignedUint16Array implements DuplexBuffer {
 		const index = bitOffset >> 4;
 		const bitIndex = bitOffset & 0xf;
 		pointer.add(1);
-		return (this.#buffer[index] >> bitIndex) & 1;
+		return (this.#buffer[index]! >> bitIndex) & 1;
 	}
 
 	/**
@@ -323,7 +323,7 @@ export class UnalignedUint16Array implements DuplexBuffer {
 		if (value) {
 			const index = this.#wordIndex;
 			const bitIndex = this.bitLength & 0xf;
-			this.#buffer[index] |= 1 << bitIndex;
+			this.#buffer[index] = this.#buffer[index]! | (1 << bitIndex);
 		}
 
 		if ((this.#bitLength & 0xf) === 0) this.#wordLength++;
@@ -352,7 +352,7 @@ export class UnalignedUint16Array implements DuplexBuffer {
 			this.#buffer[wordIndex] = value;
 		} else {
 			value &= 0xffff;
-			this.#buffer[wordIndex] |= value << bitIndex;
+			this.#buffer[wordIndex] = this.#buffer[wordIndex]! | (value << bitIndex);
 			this.#buffer[wordIndex + 1] = value >> (16 - bitIndex);
 		}
 
@@ -378,7 +378,7 @@ export class UnalignedUint16Array implements DuplexBuffer {
 
 		for (let index = 0; index < codepoints.length; index++) {
 			const wordIndex = UnalignedUint16Array.#codepointToUint16(
-				codepoints[index],
+				codepoints[index]!,
 			);
 			buffer.#buffer[index] = wordIndex;
 		}

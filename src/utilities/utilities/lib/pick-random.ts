@@ -19,7 +19,7 @@ export function pickRandom<T>(array: readonly T[], amount = 1): T | T[] {
 	const remaining = [...array];
 
 	if (typeof amount === "undefined" || amount === 1) {
-		return remaining[Math.floor(Math.random() * remaining.length)];
+		return remaining[Math.floor(Math.random() * remaining.length)]!;
 	}
 
 	if (!remaining.length || !amount) {
@@ -28,6 +28,7 @@ export function pickRandom<T>(array: readonly T[], amount = 1): T | T[] {
 
 	return Array.from(
 		{ length: Math.min(amount, remaining.length) },
-		() => remaining.splice(Math.floor(Math.random() * remaining.length), 1)[0],
+		() =>
+			remaining.splice(Math.floor(Math.random() * remaining.length), 1)[0]!,
 	);
 }

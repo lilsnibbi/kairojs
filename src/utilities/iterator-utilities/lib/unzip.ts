@@ -55,7 +55,7 @@ export function unzip<const ElementType extends readonly any[]>(
 		}
 
 		for (let index = 0; index < size; index++) {
-			results[index].push(entries[index]);
+			results[index]!.push(entries[index]);
 		}
 	}
 

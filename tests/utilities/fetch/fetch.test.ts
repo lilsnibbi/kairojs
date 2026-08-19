@@ -115,8 +115,8 @@ describe("fetch", () => {
 			);
 
 			expect(response.test).toBe(true);
-			expect(requests[0].method).toBe("GET");
-			expect(requests[0].url).toBe("http://localhost/simpleget");
+			expect(requests[0]!.method).toBe("GET");
+			expect(requests[0]!.url).toBe("http://localhost/simpleget");
 		});
 
 		test("GIVEN fetch w/o options w/ JSON response THEN returns JSON", async () => {
@@ -135,7 +135,7 @@ describe("fetch", () => {
 			);
 
 			expect(response.test).toBe(true);
-			expect(requests[0].headers.get("accept")).toBe("application/json");
+			expect(requests[0]!.headers.get("accept")).toBe("application/json");
 		});
 
 		test("GIVEN fetch w/ options w/ No Response THEN returns JSON", async () => {
@@ -213,7 +213,7 @@ describe("fetch", () => {
 			);
 
 			expect(response.test).toBe(true);
-			expect(requests[0].method).toBe("POST");
+			expect(requests[0]!.method).toBe("POST");
 		});
 
 		test("GIVEN fetch w/ Blob body THEN returns successfully", async () => {
@@ -321,8 +321,8 @@ describe("fetch", () => {
 		});
 
 		test("GIVEN fetch w/ invalid type THEN throws", async () => {
-			// @ts-expect-error handling error case
 			await expect(
+				// @ts-expect-error handling error case
 				fetch("http://localhost/simpleget", "type not found"),
 			).rejects.toThrowError('Unknown type "type not found"');
 		});

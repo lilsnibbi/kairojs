@@ -393,11 +393,11 @@ describe("Cron", () => {
 			.split(" ")
 			.map(Number);
 
-		expect(minutes >= 0 && minutes <= 59).toBe(true);
-		expect(hours >= 0 && hours <= 23).toBe(true);
-		expect(date >= 1 && date <= 31).toBe(true);
-		expect(month >= 1 && month <= 12).toBe(true);
-		expect(day >= 0 && day <= 6).toBe(true);
+		expect(minutes! >= 0 && minutes! <= 59).toBe(true);
+		expect(hours! >= 0 && hours! <= 23).toBe(true);
+		expect(date! >= 1 && date! <= 31).toBe(true);
+		expect(month! >= 1 && month! <= 12).toBe(true);
+		expect(day! >= 0 && day! <= 6).toBe(true);
 		expect(specimen.toString()).toBe("h h h h h");
 	});
 

@@ -88,7 +88,7 @@ export class MessagePrompterNumberStrategy
 		const chosenIndex = emojis.findIndex(
 			(emoji) => (response?.emoji?.id ?? response?.emoji?.name) === emoji,
 		);
-		const number = numbers[chosenIndex];
+		const number = numbers[chosenIndex]!;
 
 		return this.explicitReturn ? { ...response, number } : number;
 	}

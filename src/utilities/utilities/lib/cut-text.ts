@@ -18,7 +18,7 @@ export function cutText(text: string, length: number): string {
 
 	let lastSeparatorIndex = length;
 	for (let index = 0; index < length; ++index) {
-		if (wordSeparatorCharacter.test(codepoints[index])) {
+		if (wordSeparatorCharacter.test(codepoints[index]!)) {
 			lastSeparatorIndex = index;
 		}
 	}

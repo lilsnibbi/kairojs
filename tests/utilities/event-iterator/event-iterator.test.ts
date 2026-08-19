@@ -30,10 +30,10 @@ describe("EventIterator", () => {
 
 		const iter = emitter.createPeopleIterator({ limit: people.length });
 		const firstValue = await iter.next();
-		expect(firstValue).toStrictEqual({ done: false, value: [people[0]] });
+		expect(firstValue).toStrictEqual({ done: false, value: [people[0]!] });
 
 		const secondValue = await iter.next();
-		expect(secondValue).toStrictEqual({ done: false, value: [people[1]] });
+		expect(secondValue).toStrictEqual({ done: false, value: [people[1]!] });
 
 		iter.end();
 		const thirdValue = await iter.next();
@@ -48,7 +48,7 @@ describe("EventIterator", () => {
 
 		let count = 0;
 		for await (const value of iter) {
-			expect(value).toStrictEqual([people[count++]]);
+			expect(value).toStrictEqual([people[count++]!]);
 		}
 
 		expect(count).toBe(2);
@@ -69,7 +69,7 @@ describe("EventIterator", () => {
 
 		let count = 0;
 		for await (const value of iter) {
-			expect(value).toStrictEqual([filteredPeople[count++]]);
+			expect(value).toStrictEqual([filteredPeople[count++]!]);
 		}
 
 		expect(count).toBe(filteredPeople.length);
@@ -99,7 +99,7 @@ describe("EventIterator", () => {
 		let count = 0;
 
 		for await (const value of iter) {
-			expect(value).toStrictEqual([people[count++]]);
+			expect(value).toStrictEqual([people[count++]!]);
 		}
 
 		expect(count).toBe(3);

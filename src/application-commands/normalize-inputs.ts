@@ -237,7 +237,14 @@ export function convertApplicationCommandToApiData(
  * @param option The option to convert.
  */
 function transformOption(option: ApplicationCommandOptionData) {
-	return ApplicationCommand.transformOption(
-		option,
-	) as APIApplicationCommandOption;
+	// discord.js marks `transformOption` `private static` as of v14.27; the runtime method is
+	// unchanged, so we bypass the access check with a cast rather than reimplementing it.
+	const transform = (
+		ApplicationCommand as unknown as {
+			transformOption: (
+				option: ApplicationCommandOptionData,
+			) => APIApplicationCommandOption;
+		}
+	).transformOption;
+	return transform(option);
 }

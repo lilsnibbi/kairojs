@@ -53,8 +53,8 @@ describe("pollSync", () => {
 		test.each(["foo", true])(
 			"GIVEN %j THEN throws TypeError",
 			(maximumRetries) => {
-				// @ts-expect-error invalid type
 				const thrownCall = () =>
+					// @ts-expect-error invalid type
 					pollSync(callback, conditionRaw, { maximumRetries });
 				expect(thrownCall).toThrowError(
 					new TypeError("Expected maximumRetries to be a number"),

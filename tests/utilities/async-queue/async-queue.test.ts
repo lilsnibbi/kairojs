@@ -96,7 +96,7 @@ describe("AsyncQueue", () => {
 		// Stands in for `queue['promises'][1]['signal'] === controller.signal` and
 		// `signalListener !== null`, which are `#private` here.
 		expect(addListener).toHaveBeenCalledTimes(1);
-		expect(addListener.mock.calls[0][0]).toBe("abort");
+		expect(addListener.mock.calls[0]![0]).toBe("abort");
 
 		controller.abort();
 		expect(queue.remaining).toBe(2);
