@@ -1,0 +1,54 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		// Environment setup & latest features
+		"lib": ["ESNext"],
+		"target": "ESNext",
+		"module": "Preserve",
+		"moduleDetection": "force",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"types": ["bun"],
+
+		// Bundler mode
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"verbatimModuleSyntax": true,
+		"noEmit": true,
+
+		// Best practices
+		"strict": true,
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": false,
+
+		// Some stricter flags (disabled by default)
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noPropertyAccessFromIndexSignature": false,
+
+		"useDefineForClassFields": false,
+
+		// The decorators package is written against the legacy TypeScript decorator signature, and it
+		// has to be: `Enumerable` works by installing a prototype accessor that controls a field's
+		// enumerability, which the TC39 proposal has no equivalent for. Without this flag Bun applies
+		// TC39 semantics and those decorators break at runtime rather than failing loudly.
+		// `emitDecoratorMetadata` is deliberately NOT set — nothing reads `design:type`, and enabling
+		// it would imply a `reflect-metadata` polyfill this project does not have.
+		"experimentalDecorators": true,
+
+		"paths": {
+			"@types": ["./@types/index.d.ts"],
+			"@types/*": ["./@types/*"],
+			"@/*": ["./src/*"],
+			"@utilities/*": ["./src/utilities/*"]
+		}
+	},
+	"include": ["src", "@types", "tests", "scripts"]
+}

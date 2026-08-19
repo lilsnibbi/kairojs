@@ -1,0 +1,70 @@
+{
+	"name": "kairojs",
+	"version": "10.1.0",
+	"description": "An object-oriented Discord bot framework for the Bun runtime.",
+	"type": "module",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LilSnibbi/kairojs.git"
+	},
+	"homepage": "https://github.com/LilSnibbi/kairojs#readme",
+	"bugs": {
+		"url": "https://github.com/LilSnibbi/kairojs/issues"
+	},
+	"types": "./@types/index.d.ts",
+	"exports": {
+		".": "./src/index.ts",
+		"./i18n": "./src/i18n/index.ts",
+		"./hmr": "./src/hmr/index.ts",
+		"./logger": "./src/logger/index.ts",
+		"./utilities/*": "./src/utilities/*/index.ts",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"typecheck": "bun run scripts/typecheck.ts",
+		"typecheck:raw": "tsc --noEmit",
+		"test": "bun test",
+		"live-check": "bun run scripts/live-check.ts"
+	},
+	"peerDependencies": {
+		"discord.js": "^14.24.2",
+		"i18next": "^26.3.6"
+	},
+	"peerDependenciesMeta": {
+		"i18next": {
+			"optional": true
+		}
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.9",
+		"@types/bun": "latest",
+		"discord-api-types": "^0.38.32",
+		"discord.js": "^14.24.2",
+		"i18next": "^26.3.6",
+		"typescript": "~7.0.2"
+	},
+	"engines": {
+		"bun": ">=1.3.14"
+	},
+	"keywords": [
+		"bot",
+		"bun",
+		"discord",
+		"framework",
+		"kairo",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"module": "src/index.ts",
+	"files": [
+		"src",
+		"@types",
+		"tsconfig.json",
+		"README.md",
+		"LICENSE"
+	]
+}
