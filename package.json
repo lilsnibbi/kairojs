@@ -1,6 +1,6 @@
 {
 	"name": "kairojs",
-	"version": "10.1.0",
+	"version": "0.1.0",
 	"description": "An object-oriented Discord bot framework for the Bun runtime.",
 	"type": "module",
 	"license": "MIT",
