@@ -42,7 +42,7 @@
 		"@types/bun": "latest",
 		"discord-api-types": "0.38.53",
 		"discord.js": "14.27.0",
-		"i18next": "26.3.6",
+		"i18next": "26.4.0",
 		"typescript": "7.0.2"
 	},
 	"engines": {
