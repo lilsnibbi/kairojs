@@ -1,4 +1,4 @@
-import { range } from "@utilities/utilities/index.ts";
+import { range } from "@utilities/common/index.ts";
 import {
 	allowedNum,
 	cronTokens,

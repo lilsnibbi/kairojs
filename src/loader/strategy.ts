@@ -10,8 +10,8 @@ import type {
 	PreloadResult,
 	StoreLogger,
 } from "@types";
-import { classExtends, isClass } from "@utilities/utilities/index.ts";
-import { walkFiles } from "@utilities/fs-utilities/index.ts";
+import { classExtends, isClass } from "@utilities/common/index.ts";
+import { walkFiles } from "@utilities/fs/index.ts";
 import { MissingExportsError } from "./errors.ts";
 import type { Piece } from "./piece.ts";
 import type { Store } from "./store.ts";

@@ -9,8 +9,8 @@ import type {
 import type {
 	PreconditionRunCondition as PreconditionRunConditionConstant,
 	PreconditionRunMode as PreconditionRunModeConstant,
-} from "@/preconditions-container/container-array.ts";
-import type { UserError } from "@/errors/user-error.ts";
+} from "@/preconditions/containers/containerArray.ts";
+import type { UserError } from "@/errors/userError.ts";
 import type { Command } from "@/structures/command.ts";
 import type { Result } from "@/utilities/result/lib/result.ts";
 import type { BucketScope } from "./constants.d.ts";
@@ -20,7 +20,7 @@ import type {
 	MessageCommand,
 } from "./commands.d.ts";
 import type { PluginSubcommandCooldownPreconditionContext } from "./subcommands.d.ts";
-import type { Awaitable } from "./utilities/utilities.d.ts";
+import type { Awaitable } from "./utilities/common.d.ts";
 
 /**
  * The verdict a precondition container reaches: `ok` to let the command through, or an error

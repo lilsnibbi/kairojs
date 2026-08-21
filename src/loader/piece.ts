@@ -8,7 +8,7 @@ import type {
 	StoreRegistryKey,
 } from "@types";
 import { container } from "@/container.ts";
-import { PieceLocation } from "./piece-location.ts";
+import { PieceLocation } from "./pieceLocation.ts";
 
 /**
  * The base unit Kairo loads: a class discovered in a registered directory, constructed by its store

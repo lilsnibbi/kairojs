@@ -1,3 +1,3 @@
-export * from "./lib/discord-snowflake.ts";
+export * from "./lib/discordSnowflake.ts";
 export * from "./lib/snowflake.ts";
-export * from "./lib/twitter-snowflake.ts";
+export * from "./lib/twitterSnowflake.ts";

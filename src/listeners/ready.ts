@@ -1,5 +1,5 @@
 import type { PieceLoaderContext } from "@types";
-import { handleRegistryAPICalls } from "@/application-commands/registries.ts";
+import { handleRegistryAPICalls } from "@/applicationCommands/registries.ts";
 import { Events } from "@/constants/events.ts";
 import { container } from "@/container.ts";
 import { Listener } from "@/structures/listener.ts";

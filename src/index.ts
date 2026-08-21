@@ -37,11 +37,11 @@ export * from "./parsers/index.ts";
 export * from "./resolvers/index.ts";
 
 // Preconditions and the containers that compose them.
-export * from "./precondition-resolvers/index.ts";
-export * from "./preconditions-container/index.ts";
+export * from "./preconditions/resolvers/index.ts";
+export * from "./preconditions/containers/index.ts";
 
 // Application command registration.
-export * from "./application-commands/index.ts";
+export * from "./applicationCommands/index.ts";
 
 import {
 	acquire,
@@ -52,7 +52,7 @@ import {
 	setBulkOverwriteRetries,
 	setDefaultBehaviorWhenNotIdentical,
 	setDefaultGuildIds,
-} from "./application-commands/registries.ts";
+} from "./applicationCommands/registries.ts";
 import type { ApplicationCommandRegistry } from "@types";
 
 /**
@@ -94,7 +94,7 @@ export { ApplicationCommandRegistries };
 export * from "./plugin/index.ts";
 
 // Editable message commands: `send`/`reply` plus the listener that re-runs an edited invocation.
-export * from "./editable-commands/index.ts";
+export * from "./editableCommands/index.ts";
 
 // The logger, also available on its own at `kairojs/logger`.
 export * from "./logger/index.ts";

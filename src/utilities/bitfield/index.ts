@@ -1,2 +1,2 @@
-export * from "./lib/bit-field.ts";
-export * from "./lib/enum-to-object.ts";
+export * from "./lib/bitField.ts";
+export * from "./lib/enumToObject.ts";

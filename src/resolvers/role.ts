@@ -1,9 +1,6 @@
 import type { Guild, Role, Snowflake } from "discord.js";
 import { Identifiers } from "@/constants/identifiers.ts";
-import {
-	RoleMentionRegex,
-	SnowflakeRegex,
-} from "@utilities/discord-utilities/index.ts";
+import { RoleMentionRegex, SnowflakeRegex } from "@utilities/discord/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
 
 /**

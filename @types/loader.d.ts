@@ -1,19 +1,19 @@
-import type { AliasPiece } from "@/loader/alias-piece.ts";
+import type { AliasPiece } from "@/loader/aliasPiece.ts";
 import type { LoaderErrorTypes } from "@/loader/errors.ts";
 import type { Piece } from "@/loader/piece.ts";
-import type { PieceLocation } from "@/loader/piece-location.ts";
+import type { PieceLocation } from "@/loader/pieceLocation.ts";
 import type { Store } from "@/loader/store.ts";
-import type { StoreRegistry } from "@/loader/store-registry.ts";
+import type { StoreRegistry } from "@/loader/storeRegistry.ts";
 import type { KairoClient } from "@/client.ts";
 import type { Logger } from "./logger.d.ts";
-import type { ArgumentStore } from "@/structures/argument-store.ts";
-import type { CommandStore } from "@/structures/command-store.ts";
-import type { InteractionHandlerStore } from "@/structures/interaction-handler-store.ts";
-import type { ListenerStore } from "@/structures/listener-store.ts";
-import type { PatternCommandStore } from "@/structures/pattern-command-store.ts";
-import type { PreconditionStore } from "@/structures/precondition-store.ts";
-import type { UtilitiesStore } from "@/structures/utility-store.ts";
-import type { Awaitable, Constructor, Ctor } from "./utilities/utilities.d.ts";
+import type { ArgumentStore } from "@/structures/argumentStore.ts";
+import type { CommandStore } from "@/structures/commandStore.ts";
+import type { InteractionHandlerStore } from "@/structures/interactionHandlerStore.ts";
+import type { ListenerStore } from "@/structures/listenerStore.ts";
+import type { PatternCommandStore } from "@/structures/patternCommandStore.ts";
+import type { PreconditionStore } from "@/structures/preconditionStore.ts";
+import type { UtilitiesStore } from "@/structures/utilityStore.ts";
+import type { Awaitable, Constructor, Ctor } from "./utilities/common.d.ts";
 
 /**
  * A path accepted anywhere Kairo takes one: either a plain string or a `file:` URL.
@@ -463,7 +463,7 @@ export interface Container {
 	 * looked up or created.
 	 */
 	applicationCommandRegistries: {
-		acquire: typeof import("@/application-commands/registries.ts").acquire;
+		acquire: typeof import("@/applicationCommands/registries.ts").acquire;
 	};
 }
 

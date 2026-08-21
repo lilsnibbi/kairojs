@@ -129,7 +129,7 @@ import type { CommandOptions } from "kairojs";
 
 ### Utilities
 
-`async-queue`, `bitfield`, `cron`, `decorators`, `discord-utilities`, `discord.js-utilities`, `duration`, `event-iterator`, `fetch`, `fs-utilities`, `iterator-utilities`, `lexure`, `phisherman`, `ratelimits`, `result`, `snowflake`, `stopwatch`, `string-store`, `time-utilities`, `timer-manager`, `timestamp`, `utilities`.
+`asyncQueue`, `bitField`, `common`, `cron`, `decorators`, `discord`, `discordjs`, `duration`, `eventIterator`, `fetch`, `fs`, `iterator`, `lexure`, `phisherman`, `rateLimits`, `result`, `snowflake`, `stopwatch`, `stringStore`, `time`, `timerManager`, `timestamp`.
 
 ```typescript
 import { Duration } from "kairojs/utilities/duration";

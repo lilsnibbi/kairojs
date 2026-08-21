@@ -21,7 +21,7 @@ import type {
 	LanguagePathResolvable,
 	PathLike,
 } from "@types";
-import { walkFilesEndingWith } from "@utilities/fs-utilities/index.ts";
+import { walkFilesEndingWith } from "@utilities/fs/index.ts";
 import { Result } from "@utilities/result/index.ts";
 import { container } from "@/container.ts";
 import { getRootData } from "@/loader/root.ts";

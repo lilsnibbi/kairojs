@@ -5,7 +5,6 @@ import {
 	Locale,
 	Message,
 	type APIApplicationCommandOptionChoice,
-	type LocaleString,
 } from "discord.js";
 import type {
 	DefaultNamespace,
@@ -26,7 +25,7 @@ import type {
 	LocalizedData,
 	Target,
 } from "@types";
-import { lazy } from "@utilities/utilities/index.ts";
+import { lazy } from "@utilities/common/index.ts";
 import { container } from "@/container.ts";
 
 /**
@@ -250,13 +249,13 @@ async function resolveLanguage(
 
 const supportedLanguages = new Set(
 	Object.values(Locale),
-) as ReadonlySet<LocaleString>;
+) as ReadonlySet<Locale>;
 
 /**
  * Checks whether a locale is one Discord itself understands.
  */
-function isSupportedDiscordLocale(language: string): language is LocaleString {
-	return supportedLanguages.has(language as LocaleString);
+function isSupportedDiscordLocale(language: string): language is Locale {
+	return supportedLanguages.has(language as Locale);
 }
 
 /**

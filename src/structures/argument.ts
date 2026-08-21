@@ -6,7 +6,7 @@ import type {
 	AwaitableArgumentResult,
 	PieceLoaderContext,
 } from "@types";
-import { AliasPiece } from "@/loader/alias-piece.ts";
+import { AliasPiece } from "@/loader/aliasPiece.ts";
 import { Args } from "@/parsers/args.ts";
 
 /**

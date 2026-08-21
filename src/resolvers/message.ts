@@ -15,7 +15,7 @@ import {
 	ChannelMessageRegex,
 	MessageLinkRegex,
 	SnowflakeRegex,
-} from "@utilities/discord-utilities/index.ts";
+} from "@utilities/discord/index.ts";
 import {
 	isAnyInteraction,
 	isGuildBasedChannel,
@@ -23,7 +23,7 @@ import {
 	isStageChannel,
 	isTextBasedChannel,
 	isTextChannel,
-} from "@utilities/discord.js-utilities/index.ts";
+} from "@utilities/discordjs/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
 
 /**
@@ -124,11 +124,7 @@ async function findByLink(
 		return null;
 	}
 
-	return fetchVisibleMessage(
-		channelId!,
-		messageId!,
-		resolveRequester(options),
-	);
+	return fetchVisibleMessage(channelId!, messageId!, resolveRequester(options));
 }
 
 /**

@@ -1,0 +1,12 @@
+import { describe, expect, test } from "bun:test";
+import { splitText } from "@utilities/common/index.ts";
+
+describe("splitText", () => {
+	test("GIVEN text without spaces THEN hard cuts off", () => {
+		expect(splitText("thistexthasnospaces", 10)).toEqual("thistextha");
+	});
+
+	test("GIVEN text with spaces THEN cuts off on space", () => {
+		expect(splitText("thistext hasnospaces", 10)).toEqual("thistext");
+	});
+});

@@ -1,17 +1,17 @@
 import type { Message } from "discord.js";
 import type { Args } from "@/parsers/args.ts";
-import type { ArgumentError } from "@/errors/argument-error.ts";
-import type { UserError } from "@/errors/user-error.ts";
+import type { ArgumentError } from "@/errors/argumentError.ts";
+import type { UserError } from "@/errors/userError.ts";
 import type { Argument } from "@/structures/argument.ts";
 import type {
 	InteractionHandler,
 	InteractionHandlerTypes as InteractionHandlerTypesConstant,
-} from "@/structures/interaction-handler.ts";
+} from "@/structures/interactionHandler.ts";
 import type { Result } from "@utilities/result/index.ts";
 import type { MessageCommand, MessageCommandRunContext } from "./commands.d.ts";
 import type { AliasPieceOptions, PieceJSON, PieceOptions } from "./loader.d.ts";
 import type { UnwrapSome } from "./utilities/result.d.ts";
-import type { Awaitable } from "./utilities/utilities.d.ts";
+import type { Awaitable } from "./utilities/common.d.ts";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Arguments                                  */

@@ -1,6 +1,6 @@
 import type { FetchResultTypes, RequestOptions } from "@types";
 import { FetchResultTypes as FetchResultTypesValues } from "./constants.ts";
-import { QueryError } from "./query-error.ts";
+import { QueryError } from "./queryError.ts";
 
 /**
  * Sends an HTTP(S) request and resolves with the response body parsed as JSON.

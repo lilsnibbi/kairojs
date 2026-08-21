@@ -3,7 +3,7 @@
 import { watch } from "node:fs";
 import type { ClientOptions } from "discord.js";
 import type { KairoClientLike } from "@types";
-import { debounce } from "@utilities/utilities/index.ts";
+import { debounce } from "@utilities/common/index.ts";
 import { container } from "@/container.ts";
 import { Plugin } from "@/plugin/plugin.ts";
 import {

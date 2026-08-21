@@ -1,11 +1,11 @@
 import type { ChannelType, PermissionResolvable, Snowflake } from "discord.js";
 import type { Command } from "@/structures/command.ts";
-import type { ApplicationCommandRegistry } from "@/application-commands/registry.ts";
+import type { ApplicationCommandRegistry } from "@/applicationCommands/registry.ts";
 import type { AliasPieceJSON, AliasPieceOptions } from "./loader.d.ts";
 import type { BucketScope, CommandOptionsRunType } from "./constants.d.ts";
 import type { FlagStrategyOptions } from "./args.d.ts";
 import type { PreconditionEntryResolvable } from "./preconditions.d.ts";
-import type { Nullish } from "./utilities/utilities.d.ts";
+import type { Nullish } from "./utilities/common.d.ts";
 
 /**
  * A command's long-form description: either prose, or a structured object a bot defines for itself.

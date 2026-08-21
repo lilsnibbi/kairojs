@@ -1,6 +1,6 @@
 import type { Parameter, UnorderedStrategy } from "@types";
-import { ParserResult } from "./parser-result.ts";
-import { EmptyStrategy } from "./strategies/empty-strategy.ts";
+import { ParserResult } from "./parserResult.ts";
+import { EmptyStrategy } from "./strategies/emptyStrategy.ts";
 
 /**
  * Runs a stream of {@link Parameter}s through an {@link UnorderedStrategy}, sorting them into a

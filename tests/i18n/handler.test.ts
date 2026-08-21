@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { InternationalizationHandler } from "@/i18n/lib/handler.ts";
-import { isClass } from "@utilities/utilities/index.ts";
+import { isClass } from "@utilities/common/index.ts";
 
 function structureTest(i18n: InternationalizationHandler) {
 	expect(i18n.languagesLoaded).toBe(false);

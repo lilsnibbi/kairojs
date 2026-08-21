@@ -2,7 +2,7 @@ import type { ChannelTypes } from "@types";
 import type { CommandInteraction, Message, Snowflake } from "discord.js";
 import { Identifiers } from "@/constants/identifiers.ts";
 import { container } from "@/container.ts";
-import { ChannelMentionRegex } from "@utilities/discord-utilities/index.ts";
+import { ChannelMentionRegex } from "@utilities/discord/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
 
 /**

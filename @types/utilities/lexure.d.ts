@@ -1,6 +1,6 @@
 import type { Option } from "@utilities/result/lib/option.ts";
-import type { QuotedParameter } from "@/utilities/lexure/lib/lexer/streams/parameters/quoted-parameter.ts";
-import type { WordParameter } from "@/utilities/lexure/lib/lexer/streams/parameters/word-parameter.ts";
+import type { QuotedParameter } from "@/utilities/lexure/lib/lexer/streams/parameters/quotedParameter.ts";
+import type { WordParameter } from "@/utilities/lexure/lib/lexer/streams/parameters/wordParameter.ts";
 
 /**
  * The kinds of {@link Token} the lexer can emit — derived from the frozen `TokenType` object.
@@ -8,7 +8,7 @@ import type { WordParameter } from "@/utilities/lexure/lib/lexer/streams/paramet
  * @since 1.0.0
  */
 export type TokenType =
-	typeof import("@/utilities/lexure/lib/lexer/streams/raw/token-stream.ts").TokenType[keyof typeof import("@/utilities/lexure/lib/lexer/streams/raw/token-stream.ts").TokenType];
+	typeof import("@/utilities/lexure/lib/lexer/streams/raw/tokenStream.ts").TokenType[keyof typeof import("@/utilities/lexure/lib/lexer/streams/raw/tokenStream.ts").TokenType];
 
 /**
  * A bare word, unbroken by a separator or a quote pair.
@@ -16,7 +16,7 @@ export type TokenType =
  * @since 1.0.0
  */
 export interface WordToken {
-	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/token-stream.ts").TokenType.Parameter;
+	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/tokenStream.ts").TokenType.Parameter;
 	readonly value: string;
 }
 
@@ -26,7 +26,7 @@ export interface WordToken {
  * @since 1.0.0
  */
 export interface QuotedToken {
-	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/token-stream.ts").TokenType.Quoted;
+	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/tokenStream.ts").TokenType.Quoted;
 	readonly value: string;
 	readonly open: string;
 	readonly close: string;
@@ -38,7 +38,7 @@ export interface QuotedToken {
  * @since 1.0.0
  */
 export interface SeparatorToken {
-	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/token-stream.ts").TokenType.Separator;
+	readonly type: typeof import("@/utilities/lexure/lib/lexer/streams/raw/tokenStream.ts").TokenType.Separator;
 	readonly value: string;
 }
 

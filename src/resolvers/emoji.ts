@@ -1,10 +1,7 @@
 import type { EmojiObject, Identifier } from "@types";
 import { parseEmoji } from "discord.js";
 import { Identifiers } from "@/constants/identifiers.ts";
-import {
-	EmojiRegex,
-	createTwemojiRegex,
-} from "@utilities/discord-utilities/index.ts";
+import { EmojiRegex, createTwemojiRegex } from "@utilities/discord/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
 
 /**

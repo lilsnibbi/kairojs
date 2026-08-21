@@ -1,7 +1,7 @@
 import type { Guild } from "discord.js";
 import { Identifiers } from "@/constants/identifiers.ts";
 import { container } from "@/container.ts";
-import { SnowflakeRegex } from "@utilities/discord-utilities/index.ts";
+import { SnowflakeRegex } from "@utilities/discord/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
 
 /**

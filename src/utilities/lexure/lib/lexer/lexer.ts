@@ -1,6 +1,6 @@
 import type { LexerOptions } from "@types";
-import { ParameterStream } from "./streams/parameter-stream.ts";
-import { TokenStream } from "./streams/raw/token-stream.ts";
+import { ParameterStream } from "./streams/parameterStream.ts";
+import { TokenStream } from "./streams/raw/tokenStream.ts";
 
 /**
  * Configures and drives the splitting of a raw command string into {@link ParameterStream}s and

@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { LogLevel } from "@/logger/log-level.ts";
+import { LogLevel } from "@/logger/logLevel.ts";
 import { Logger } from "@/logger/logger.ts";
-import { isClass } from "@utilities/utilities/index.ts";
+import { isClass } from "@utilities/common/index.ts";
 
 // The upstream suite listed `Trace` twice and left `None` out. `None` is a real entry in the format
 // map and doubles as the fallback style, so it is listed here instead of the duplicate.

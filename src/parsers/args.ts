@@ -22,9 +22,9 @@ import { join } from "@utilities/lexure/index.ts";
 import { Option, Result } from "@utilities/result/index.ts";
 import { container } from "@/container.ts";
 import { Identifiers } from "@/constants/identifiers.ts";
-import { ArgumentError } from "@/errors/argument-error.ts";
-import { UserError } from "@/errors/user-error.ts";
-import type { AliasStore } from "@/loader/alias-store.ts";
+import { ArgumentError } from "@/errors/argumentError.ts";
+import { UserError } from "@/errors/userError.ts";
+import type { AliasStore } from "@/loader/aliasStore.ts";
 import type { Argument } from "@/structures/argument.ts";
 
 /**

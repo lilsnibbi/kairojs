@@ -12,7 +12,7 @@ import type {
 } from "@types";
 import { Timestamp } from "@utilities/timestamp/index.ts";
 import { colors } from "./colors.ts";
-import { LogLevel } from "./log-level.ts";
+import { LogLevel } from "./logLevel.ts";
 
 /**
  * Applies a single, pre-resolved ANSI style to whatever it is handed.

@@ -10,7 +10,7 @@ import type {
 } from "discord.js";
 import type { InitOptions, TFunctionDetailedResult, TOptions } from "i18next";
 import type { PathLike } from "./loader.d.ts";
-import type { Awaitable } from "./utilities/utilities.d.ts";
+import type { Awaitable } from "./utilities/common.d.ts";
 
 export type { TFunction, TOptions } from "i18next";
 

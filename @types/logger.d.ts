@@ -3,7 +3,7 @@ import type {
 	LoggerStyleEffect as LoggerStyleEffectConstant,
 	LoggerStyleText as LoggerStyleTextConstant,
 } from "@/logger/colors.ts";
-import type { LogLevel as LogLevelConstant } from "@/logger/log-level.ts";
+import type { LogLevel as LogLevelConstant } from "@/logger/logLevel.ts";
 
 /**
  * How severe a log entry is, derived from the frozen constant so the two can never drift apart.

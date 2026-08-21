@@ -2,7 +2,7 @@ import type { Message } from "discord.js";
 import type {
 	AnyInteraction,
 	TextBasedChannelTypes,
-} from "./utilities/discord.js-utilities.d.ts";
+} from "./utilities/discordjs.d.ts";
 
 /**
  * The lower and upper bound a resolver accepts, shared by every resolver that validates a range.

@@ -1,3 +1,3 @@
 export * from "./plugin.ts";
-export * from "./plugin-manager.ts";
+export * from "./pluginManager.ts";
 export * from "./symbols.ts";

@@ -7,7 +7,7 @@ import type {
 import type { DecoratorIdentifiers as DecoratorIdentifiersConstant } from "@utilities/decorators/lib/identifiers.ts";
 import type { Command } from "@/structures/command.ts";
 import type { Ctor } from "./utilities.d.ts";
-import type { ApplicationCommandRegistryRegisterOptions } from "../application-commands.d.ts";
+import type { ApplicationCommandRegistryRegisterOptions } from "../applicationCommands.d.ts";
 import type { Container, PieceLoaderContext } from "../loader.d.ts";
 
 /* -------------------------------------------------------------------------- */

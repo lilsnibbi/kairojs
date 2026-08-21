@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { resolve } from "node:path";
-import { AliasPiece } from "@/loader/alias-piece.ts";
-import { AliasStore } from "@/loader/alias-store.ts";
+import { AliasPiece } from "@/loader/aliasPiece.ts";
+import { AliasStore } from "@/loader/aliasStore.ts";
 import { VirtualPath } from "@/loader/constants.ts";
 import { LoaderError } from "@/loader/errors.ts";
 import { Piece } from "@/loader/piece.ts";

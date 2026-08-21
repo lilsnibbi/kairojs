@@ -3,9 +3,9 @@ import { Identifiers } from "@/constants/identifiers.ts";
 import {
 	SnowflakeRegex,
 	UserOrMemberMentionRegex,
-} from "@utilities/discord-utilities/index.ts";
+} from "@utilities/discord/index.ts";
 import { type Result, err, ok } from "@utilities/result/index.ts";
-import { isNullOrUndefined } from "@utilities/utilities/index.ts";
+import { isNullOrUndefined } from "@utilities/common/index.ts";
 
 /**
  * Resolves a member of a guild by mention or id, optionally falling back to a name search.

@@ -12,8 +12,8 @@ import type {
 	User,
 	VoiceChannel,
 } from "discord.js";
-import type { ArgumentError } from "@/errors/argument-error.ts";
-import type { UserError } from "@/errors/user-error.ts";
+import type { ArgumentError } from "@/errors/argumentError.ts";
+import type { UserError } from "@/errors/userError.ts";
 import type { Option } from "@/utilities/result/lib/option.ts";
 import type { Result } from "@/utilities/result/lib/result.ts";
 import type { MessageCommand, MessageCommandRunContext } from "./commands.d.ts";
@@ -21,7 +21,7 @@ import type { EmojiObject } from "./resolvers.d.ts";
 import type {
 	ChannelTypes,
 	GuildBasedChannelTypes,
-} from "./utilities/discord.js-utilities.d.ts";
+} from "./utilities/discordjs.d.ts";
 
 /**
  * The plain snapshot `Args` produces for `JSON.stringify`, and the payload attached as `context` to

@@ -16,7 +16,7 @@ import type {
 	PreconditionResult,
 } from "@types";
 import { Result } from "@utilities/result/index.ts";
-import { PreconditionError } from "@/errors/precondition-error.ts";
+import { PreconditionError } from "@/errors/preconditionError.ts";
 import { Piece } from "@/loader/piece.ts";
 
 /**

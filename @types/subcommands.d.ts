@@ -5,7 +5,7 @@ import type {
 	SubcommandPluginEvents as SubcommandPluginEventsConstant,
 	SubcommandPluginIdentifiers as SubcommandPluginIdentifiersConstant,
 } from "@/constants/subcommands.ts";
-import type { UserError } from "@/errors/user-error.ts";
+import type { UserError } from "@/errors/userError.ts";
 import type { Args } from "@/parsers/args.ts";
 import type { Command } from "@/structures/command.ts";
 import type { Subcommand } from "@/structures/subcommand.ts";
@@ -18,7 +18,7 @@ import type {
 import type { MessageCommandDeniedPayload } from "./events.d.ts";
 import type { CooldownPreconditionContext } from "./preconditions.d.ts";
 import type { BucketScope } from "./constants.d.ts";
-import type { PreconditionContainerArray } from "@/preconditions-container/container-array.ts";
+import type { PreconditionContainerArray } from "@/preconditions/containers/containerArray.ts";
 
 /* -------------------------------------------------------------------------- */
 /*                              Derived constants                              */

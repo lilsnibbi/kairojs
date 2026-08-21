@@ -16,20 +16,20 @@ import type {
 } from "@types";
 import type { Args } from "@/parsers/args.ts";
 import { Result } from "@utilities/result/index.ts";
-import { cast, deepClone } from "@utilities/utilities/index.ts";
+import { cast, deepClone } from "@utilities/common/index.ts";
 import {
 	SubcommandPluginEvents,
 	SubcommandPluginIdentifiers,
 } from "@/constants/subcommands.ts";
-import { UserError } from "@/errors/user-error.ts";
-import { PreconditionContainerArray } from "@/preconditions-container/container-array.ts";
+import { UserError } from "@/errors/userError.ts";
+import { PreconditionContainerArray } from "@/preconditions/containers/containerArray.ts";
 import {
 	parseConstructorPreConditionsNsfw,
 	parseConstructorPreConditionsRequiredClientPermissions,
 	parseConstructorPreConditionsRequiredUserPermissions,
 	parseConstructorPreConditionsRunIn,
 	parseSubcommandConstructorPreConditionsCooldown,
-} from "@/precondition-resolvers/index.ts";
+} from "@/preconditions/resolvers/index.ts";
 import { Command } from "./command.ts";
 
 /**

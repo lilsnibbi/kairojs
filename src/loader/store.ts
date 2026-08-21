@@ -14,7 +14,7 @@ import type {
 	StoreOptions,
 	StoreRegistryKey,
 } from "@types";
-import { classExtends, isClass } from "@utilities/utilities/index.ts";
+import { classExtends, isClass } from "@utilities/common/index.ts";
 import { container } from "@/container.ts";
 import { ManuallyRegisteredPieces, VirtualPath } from "./constants.ts";
 import { LoaderError, LoaderErrorTypes } from "./errors.ts";

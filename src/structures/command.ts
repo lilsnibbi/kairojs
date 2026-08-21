@@ -24,26 +24,26 @@ import type {
 	UnorderedStrategy,
 } from "@types";
 import { ArgumentStream, Lexer, Parser } from "@utilities/lexure/index.ts";
-import { isFunction, isNullish, isObject } from "@utilities/utilities/index.ts";
-import { AliasPiece } from "@/loader/alias-piece.ts";
+import { isFunction, isNullish, isObject } from "@utilities/common/index.ts";
+import { AliasPiece } from "@/loader/aliasPiece.ts";
 import { RegisterBehavior } from "@/constants/enums.ts";
 import { Args } from "@/parsers/args.ts";
-import { FlagUnorderedStrategy } from "@/parsers/flag-unordered-strategy.ts";
-import { PreconditionContainerArray } from "@/preconditions-container/container-array.ts";
+import { FlagUnorderedStrategy } from "@/parsers/flagUnorderedStrategy.ts";
+import { PreconditionContainerArray } from "@/preconditions/containers/containerArray.ts";
 import {
 	parseConstructorPreConditionsCooldown,
 	parseConstructorPreConditionsNsfw,
 	parseConstructorPreConditionsRequiredClientPermissions,
 	parseConstructorPreConditionsRequiredUserPermissions,
 	parseConstructorPreConditionsRunIn,
-} from "@/precondition-resolvers/index.ts";
+} from "@/preconditions/resolvers/index.ts";
 import {
 	acquire,
 	getDefaultBehaviorWhenNotIdentical,
 	handleBulkOverwrite,
-} from "@/application-commands/registries.ts";
-import { getNeededRegistryParameters } from "@/application-commands/needed-parameters.ts";
-import { emitPerRegistryError } from "@/application-commands/registry-errors.ts";
+} from "@/applicationCommands/registries.ts";
+import { getNeededRegistryParameters } from "@/applicationCommands/neededParameters.ts";
+import { emitPerRegistryError } from "@/applicationCommands/registryErrors.ts";
 
 /**
  * Every channel type discord.js knows about, as a numeric list.

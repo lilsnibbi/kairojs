@@ -1,4 +1,4 @@
-import type { BitField } from "@utilities/bitfield/index.ts";
+import type { BitField } from "@utilities/bitField/index.ts";
 
 /**
  * The primitive a {@link BitField} stores its bits as, derived from the widened type `T`.

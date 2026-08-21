@@ -1,5 +1,5 @@
 import type { Container } from "@types";
-import { StoreRegistry } from "@/loader/store-registry.ts";
+import { StoreRegistry } from "@/loader/storeRegistry.ts";
 
 /**
  * The shared service bag every piece can reach through `this.container`.

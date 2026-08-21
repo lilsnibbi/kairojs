@@ -2,7 +2,7 @@ import type { Message, Snowflake } from "discord.js";
 import type { KairoClient } from "@/client.ts";
 import type { BucketScope } from "./constants.d.ts";
 import type { Logger, LoggerOptions } from "./logger.d.ts";
-import type { Awaitable } from "./utilities/utilities.d.ts";
+import type { Awaitable } from "./utilities/common.d.ts";
 
 /**
  * A prefix a message command may be invoked with.

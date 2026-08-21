@@ -2,7 +2,7 @@ import type { ClientOptions } from "discord.js";
 import type { PluginHook as PluginHookConstant } from "@/constants/enums.ts";
 import type { KairoClientLike } from "./client.d.ts";
 import type { PluginHook } from "./constants.d.ts";
-import type { Awaitable } from "./utilities/utilities.d.ts";
+import type { Awaitable } from "./utilities/common.d.ts";
 
 /**
  * The lifecycle points whose hooks are awaited, so they may do asynchronous work.

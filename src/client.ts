@@ -9,28 +9,28 @@ import { container } from "@/container.ts";
 import { Store } from "@/loader/store.ts";
 import { Events } from "@/constants/events.ts";
 import { PluginHook } from "@/constants/enums.ts";
-import { LogLevel } from "@/logger/log-level.ts";
+import { LogLevel } from "@/logger/logLevel.ts";
 import { Logger } from "@/logger/logger.ts";
 import type { Plugin } from "@/plugin/plugin.ts";
-import { PluginManager } from "@/plugin/plugin-manager.ts";
-import { ArgumentStore } from "@/structures/argument-store.ts";
-import { CommandStore } from "@/structures/command-store.ts";
-import { InteractionHandlerStore } from "@/structures/interaction-handler-store.ts";
-import { ListenerStore } from "@/structures/listener-store.ts";
-import { PatternCommandStore } from "@/structures/pattern-command-store.ts";
-import { Utilities } from "@/structures/utility-store.ts";
-import { PreconditionStore } from "@/structures/precondition-store.ts";
-import { acquire } from "@/application-commands/registries.ts";
-import { loadApplicationCommandRegistriesListeners } from "@/optional-listeners/application-command-registries-listeners/index.ts";
-import { loadErrorListeners } from "@/optional-listeners/error-listeners/index.ts";
-import { loadMessageCommandListeners } from "@/optional-listeners/message-command-listeners/index.ts";
-import { loadEditableCommandsListeners } from "@/editable-commands/index.ts";
+import { PluginManager } from "@/plugin/pluginManager.ts";
+import { ArgumentStore } from "@/structures/argumentStore.ts";
+import { CommandStore } from "@/structures/commandStore.ts";
+import { InteractionHandlerStore } from "@/structures/interactionHandlerStore.ts";
+import { ListenerStore } from "@/structures/listenerStore.ts";
+import { PatternCommandStore } from "@/structures/patternCommandStore.ts";
+import { Utilities } from "@/structures/utilityStore.ts";
+import { PreconditionStore } from "@/structures/preconditionStore.ts";
+import { acquire } from "@/applicationCommands/registries.ts";
+import { loadApplicationCommandRegistriesListeners } from "@/optionalListeners/applicationCommandRegistries/index.ts";
+import { loadErrorListeners } from "@/optionalListeners/errors/index.ts";
+import { loadMessageCommandListeners } from "@/optionalListeners/messageCommands/index.ts";
+import { loadEditableCommandsListeners } from "@/editableCommands/index.ts";
 
 // Registering the built-in pieces is a side effect of importing them, so these imports are load
 // bearing even though nothing is bound from them.
 import "@/arguments/index.ts";
 import "@/listeners/index.ts";
-import "@/preconditions/index.ts";
+import "@/preconditions/pieces/index.ts";
 
 container.applicationCommandRegistries = { acquire };
 

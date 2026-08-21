@@ -11,13 +11,13 @@ import type {
 	Snowflake,
 } from "discord.js";
 import type { Events as KairoEvents } from "@/constants/events.ts";
-import type { UserError } from "@/errors/user-error.ts";
+import type { UserError } from "@/errors/userError.ts";
 import type { Piece } from "@/loader/piece.ts";
 import type { Store } from "@/loader/store.ts";
 import type { Command } from "@/structures/command.ts";
-import type { InteractionHandler } from "@/structures/interaction-handler.ts";
+import type { InteractionHandler } from "@/structures/interactionHandler.ts";
 import type { AnyListener } from "./listener.d.ts";
-import type { ApplicationCommandRegistry } from "@/application-commands/registry.ts";
+import type { ApplicationCommandRegistry } from "@/applicationCommands/registry.ts";
 import type { None, Option, Some } from "./utilities/result.d.ts";
 import type { PluginHook } from "./constants.d.ts";
 import type {
