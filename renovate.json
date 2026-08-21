@@ -2,6 +2,9 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:best-practices"],
 	"timezone": "Australia/Sydney",
+	"baseBranchPatterns": [
+		"dev"
+	],
 	"reviewers": ["lilsnibbi"],
 	"labels": ["dependencies", "renovate"],
 	"dependencyDashboardLabels": ["dependencies", "renovate"],
@@ -42,6 +45,21 @@
 			"description": "Highlight major updates",
 			"matchUpdateTypes": ["major"],
 			"addLabels": ["major-update"]
+		},
+		{
+			"description": "Postgres/Redis: stable numeric tags only, no beta/arch variants",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": ["postgres", "redis"],
+			"ignoreUnstable": true,
+			"enabled": false
+		},
+		{
+			"description": "Track drizzle prerelease builds together",
+			"matchPackageNames": ["drizzle-orm", "drizzle-kit"],
+			"groupName": "Drizzle",
+			"rangeStrategy": "bump",
+			"followTag": "latest"
 		}
-	]
+	],
+	"ignoreUnstable": false
 }
